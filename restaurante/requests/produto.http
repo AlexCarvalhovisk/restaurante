@@ -1,0 +1,33 @@
+@baseUrl = http://localhost:8080
+
+### Cadastrar Produto
+
+POST {{baseUrl}}/produtos
+Content-Type: application/json
+
+{
+  "categoriaId": 2,
+  "nome": "Parmegiana de frango",
+  "descicao": "Filé de frango empanado com molho de tomate e queijo",
+  "preco": 49.90,
+  "disponivel": true,
+  "tempoPreparoMinutos": 35
+}
+
+### Listar produtos
+
+GET {{baseUrl}}/produtos?page=0&size=sorte=nome,asc
+
+### Buscar produto por ID
+
+GET {{baseUrl}}/produtos/3
+
+### Excluir produto
+
+DELETE {{baseUrl}}/produtos/5
+
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=IntelliJ IDEA
+
+###
