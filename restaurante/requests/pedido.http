@@ -1,0 +1,25 @@
+@baseUrl = http://localhost:8080
+
+### Abrir pedido para mesa
+
+POST {{baseUrl}}/pedidos
+Content-Type: application/json
+
+{
+  "mesaId": 1,
+  "observacao": "Cliente pediu atendimento rápido."
+}
+
+### Listar pedidos
+
+GET {{baseUrl}}/pedidos?page=0&size=10&sorte=dataAbertura, desc
+
+### Buscar pedido por ID
+
+GET {{baseUrl}}/pedidos/4
+
+### GET request to example server
+GET https://examples.http-client.intellij.net/get
+    ?generated-in=IntelliJ IDEA
+
+###

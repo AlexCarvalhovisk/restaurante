@@ -29,6 +29,7 @@ public class Pedido {
     private Mesa mesa;
 
     //Sempre que atuo com data na entidade, é bom trabalhar com PRE PERSIST, pois ele alimenta com data do servidor auto
+    @PrePersist
     public void prePersist() {
         dataAbertura = LocalDateTime.now();
     }
