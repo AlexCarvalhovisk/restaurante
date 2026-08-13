@@ -5,7 +5,7 @@ import dev.alexcarvalho.restaurante.domain.enums.StatusPedido;
 
 import java.time.LocalDateTime;
 
-public record Pedidoresponse(
+public record PedidoResponse(
         Long id,
         Long mesaId,
         Integer numeroMesa,
@@ -15,8 +15,8 @@ public record Pedidoresponse(
         String observacao
 ) {
 
-    public static Pedidoresponse fromEntity(Pedido pedido) {
-        return new Pedidoresponse(
+    public static PedidoResponse fromEntity(Pedido pedido) {
+        return new PedidoResponse(
                 pedido.getId(),
                 pedido.getMesa().getId(),
                 pedido.getMesa().getNumero(),

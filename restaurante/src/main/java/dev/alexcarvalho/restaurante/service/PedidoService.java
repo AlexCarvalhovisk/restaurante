@@ -5,7 +5,7 @@ import dev.alexcarvalho.restaurante.domain.entity.Pedido;
 import dev.alexcarvalho.restaurante.domain.enums.StatusMesa;
 import dev.alexcarvalho.restaurante.domain.enums.StatusPedido;
 import dev.alexcarvalho.restaurante.dto.PedidoRequest;
-import dev.alexcarvalho.restaurante.dto.Pedidoresponse;
+import dev.alexcarvalho.restaurante.dto.PedidoResponse;
 import dev.alexcarvalho.restaurante.repository.MesaRepository;
 import dev.alexcarvalho.restaurante.repository.PedidoRepository;
 import org.springframework.data.domain.Page;
@@ -24,7 +24,7 @@ public class PedidoService {
     }
 
     //Primeiro passo criei uma função que abre um pedido e verificar a regra de negócio se a mesa existe.
-    public Pedidoresponse abrirPedido(PedidoRequest pedidoRequest) {
+    public PedidoResponse abrirPedido(PedidoRequest pedidoRequest) {
         Mesa mesa = mesaRepository.findById(pedidoRequest.mesaId())
                 .orElseThrow(() -> new RuntimeException("Mesa inexistente"));
 
@@ -43,16 +43,16 @@ public class PedidoService {
 
         Pedido pedidoSalvo = pedidoRepository.save(pedido);
         mesaRepository.save(mesa);
-        return Pedidoresponse.fromEntity(pedidoSalvo);
+        return PedidoResponse.fromEntity(pedidoSalvo);
     }
 
-    public Page<Pedidoresponse> listar(Pageable pageable) {
-        return pedidoRepository.findAll(pageable).map(Pedidoresponse::fromEntity);
+    public Page<PedidoResponse> listar(Pageable pageable) {
+        return pedidoRepository.findAll(pageable).map(PedidoResponse::fromEntity);
     }
 
-    public Pedidoresponse buscarPorId(Long id) {
+    public PedidoResponse buscarPorId(Long id) {
         Pedido pedido = pedidoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Pedido não encontrado"));
-        return Pedidoresponse.fromEntity(pedido);
+        return PedidoResponse.fromEntity(pedido);
     }
 }
