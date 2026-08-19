@@ -20,11 +20,11 @@ GET {{baseUrl}}/produtos?page=0&size=sorte=nome,asc
 
 ### Buscar produto por ID
 
-GET {{baseUrl}}/produtos/3
+GET {{baseUrl}}/produtos/2
 
 ### Excluir produto
 
-DELETE {{baseUrl}}/produtos/5
+DELETE {{baseUrl}}/produtos/1
 
 ### GET request to example server
 GET https://examples.http-client.intellij.net/get

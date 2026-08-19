@@ -22,4 +22,25 @@ GET {{baseUrl}}/pedidos/4
 GET https://examples.http-client.intellij.net/get
     ?generated-in=IntelliJ IDEA
 
-###
+### Adicionar item ao pedido
+POST {{baseUrl}}/pedidos/4/itens
+Content-Type: application/json
+
+{
+  "produtoId": 2,
+  "quantidade": 2,
+  "observacao": "Sem açucar"
+}
+
+### Adicionar outro item ao pedido
+POST {{baseUrl}}/pedidos/1/itens
+Content-Type: application/json
+
+{
+  "produtoId": 4,
+  "quantidade": 1,
+  "observacao": "Bem passado"
+}
+
+### Listar itens do pedido
+GET {{baseUrl}}/pedidos/4/itens
