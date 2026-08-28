@@ -6,10 +6,10 @@ POST {{baseUrl}}/produtos
 Content-Type: application/json
 
 {
-  "categoriaId": 2,
-  "nome": "Parmegiana de frango",
-  "descicao": "Filé de frango empanado com molho de tomate e queijo",
-  "preco": 49.90,
+  "categoriaId": 1,
+  "nome": "Batata Mexicana",
+  "descicao": "Batata frita com orégano e tomate seco.",
+  "preco": 11.90,
   "disponivel": true,
   "tempoPreparoMinutos": 35
 }
@@ -29,5 +29,3 @@ DELETE {{baseUrl}}/produtos/1
 ### GET request to example server
 GET https://examples.http-client.intellij.net/get
     ?generated-in=IntelliJ IDEA
-
-###

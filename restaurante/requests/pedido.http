@@ -6,7 +6,7 @@ POST {{baseUrl}}/pedidos
 Content-Type: application/json
 
 {
-  "mesaId": 1,
+  "mesaId": 2,
   "observacao": "Cliente pediu atendimento rápido."
 }
 
@@ -23,13 +23,13 @@ GET https://examples.http-client.intellij.net/get
     ?generated-in=IntelliJ IDEA
 
 ### Adicionar item ao pedido
-POST {{baseUrl}}/pedidos/4/itens
+POST {{baseUrl}}/pedidos/5/itens
 Content-Type: application/json
 
 {
   "produtoId": 2,
   "quantidade": 2,
-  "observacao": "Sem açucar"
+  "observacao": "Sem sal"
 }
 
 ### Adicionar outro item ao pedido
@@ -43,4 +43,4 @@ Content-Type: application/json
 }
 
 ### Listar itens do pedido
-GET {{baseUrl}}/pedidos/4/itens
+GET {{baseUrl}}/pedidos/5/itens

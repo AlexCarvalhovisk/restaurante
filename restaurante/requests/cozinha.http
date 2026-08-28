@@ -4,7 +4,7 @@
 GET {{baseUrl}}/cozinha/itens-em-preparo
 
 ### Iniciar preparo do item
-PATCH {{baseUrl}}/cozinha/itens/1/iniciar-preparo
+PATCH {{baseUrl}}/cozinha/itens/2/iniciar-preparo
 
 ### Listar itens pendentes
 GET {{baseUrl}}/cozinha/itens-em-preparo
