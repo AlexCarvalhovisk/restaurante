@@ -15,20 +15,20 @@ import java.util.concurrent.Executors;
 @Component
 public class CozinhaWorker {
 
-    private final PedidoItemRepository peidoItemRepository;
+    private final PedidoItemRepository pedidoItemRepository;
 
     //O Executor serve para usar a Virtual Thread
     private final ExecutorService executorService =
             Executors.newVirtualThreadPerTaskExecutor();
 
-    public CozinhaWorker(PedidoItemRepository peidoItemRepository) {
-        this.peidoItemRepository = peidoItemRepository;
+    public CozinhaWorker(PedidoItemRepository pedidoItemRepository) {
+        this.pedidoItemRepository = pedidoItemRepository;
     }
 
     @Scheduled(fixedRate = 60000)
     public void verificarItensAtrasados() {
         List<PedidoItem> itensEmPreparo =
-                peidoItemRepository.buscarItensComProdutoEPedido(StatusItemPedido.EM_PREPARO);
+                pedidoItemRepository.buscarItensComProdutoEPedido(StatusItemPedido.EM_PREPARO);
         for(PedidoItem pedidoItem : itensEmPreparo) {
             executorService.submit(() -> verificarItem(pedidoItem));
         }

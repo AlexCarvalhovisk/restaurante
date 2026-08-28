@@ -45,7 +45,7 @@ public class CozinhaService {
             throw new RegraNegocioException("Somente itens em preparo podem ser marcar como pronto.");
         }
         item.setStatus(StatusItemPedido.PRONTO);
-        item.setDataInicioPreparo(LocalDateTime.now());
+        item.setDataPronto(LocalDateTime.now());
         return CozinhaItemResponse.fromEntity(pedidoItemRepository.save(item));
     }
 
