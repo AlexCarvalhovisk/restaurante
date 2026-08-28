@@ -4,6 +4,7 @@ import dev.alexcarvalho.restaurante.dto.PedidoItemRequest;
 import dev.alexcarvalho.restaurante.dto.PedidoItemResponse;
 import dev.alexcarvalho.restaurante.dto.PedidoRequest;
 import dev.alexcarvalho.restaurante.dto.PedidoResponse;
+import dev.alexcarvalho.restaurante.service.PagamentoService;
 import dev.alexcarvalho.restaurante.service.PedidoService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -17,9 +18,11 @@ import java.util.List;
 public class PedidoController {
 
     public final PedidoService pedidoService;
+    public final PagamentoService pagamentoService;
 
-    public PedidoController(PedidoService pedidoService){
+    public PedidoController(PedidoService pedidoService, PagamentoService pagamentoService) {
         this.pedidoService = pedidoService;
+        this.pagamentoService = pagamentoService;
     }
 
     @PostMapping
@@ -47,5 +50,10 @@ public class PedidoController {
     @GetMapping("/{pedidoId}/itens")
     public List<PedidoItemResponse> listarItens(@PathVariable Long pedidoId){
         return pedidoService.listarItens(pedidoId);
+    }
+
+    @PostMapping("/pedidos/{pedidoId}/pagar")
+    public void pagar(@PathVariable Long pedidoId,@RequestParam String formaPagamento){
+        pagamentoService.pagar(pedidoId, formaPagamento);
     }
 }
