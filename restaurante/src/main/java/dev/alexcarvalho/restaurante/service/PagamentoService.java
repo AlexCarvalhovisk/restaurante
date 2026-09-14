@@ -37,6 +37,7 @@ public class PagamentoService {
         this.pagamentoRepository = pagamentoRepository;
     }
     //Tenho que verificar se essa anotação vai funcionar
+    //Se der tudo errado, o Transacional faz o rollback para mim...
     @Transactional
     public void pagar(Long pedidoId, String formaPagamento) {
         FechamentoConta fechamento = fechamentoContaRepository.findById(pedidoId)
@@ -48,6 +49,7 @@ public class PagamentoService {
                         formaPagamento
                 )
         );
+
         if("APROVADO".equals(response.status())){
             Pedido pedido = fechamento.getPedido();
             pedido.setStatus(StatusPedido.FECHADO);
